@@ -1,0 +1,7 @@
+---
+# defaults file for project-boilerplate
+project_base_dir: /tmp
+image_repository: quay.io/cayops
+image_tag: latest
+
+k8s_deployment_replicas: 1

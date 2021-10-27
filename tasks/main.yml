@@ -1,0 +1,3 @@
+---
+# tasks file for project-boilerplate
+- include_tasks: create_project.yaml

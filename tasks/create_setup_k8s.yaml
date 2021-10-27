@@ -1,0 +1,14 @@
+---
+- name: Create manifest files for app deployment on k8s
+  template:
+    src: "k8s/{{ item }}.j2"
+    dest: "{{ project_base_dir }}/{{ project_name }}/k8s/{{ item }}"
+  loop:
+    - deployment.yaml
+    - route.yaml
+    - service.yaml
+
+- name: Copy kustomization file to k8s setup
+  copy:
+    src: kustomization.yaml
+    dest: "{{ project_base_dir }}/{{ project_name }}/k8s/kustomization.yaml"

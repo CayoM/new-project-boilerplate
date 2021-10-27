@@ -1,0 +1,2 @@
+create_app_command: create-next-app
+app_port: 3000

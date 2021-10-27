@@ -1,0 +1,18 @@
+---
+- name: Create manifest files for Tekton
+  template:
+    src: "tekton/{{ item }}.j2"
+    dest: "{{ project_base_dir }}/{{ project_name }}/tekton/{{ item }}"
+  loop:
+    - Configmap.yaml
+    - EventListener.yaml
+    - Pipeline.yaml
+    - ServiceAccount.yaml
+    - Task.Deploy.yaml
+    - Task.GitOps.yaml
+    - Task.SetupK8S.yaml
+
+- name: Create gitignore for secrets
+  copy:
+    dest: "{{ project_base_dir }}/{{ project_name }}/tekton/.gitignore"
+    content: Secrets.yaml
