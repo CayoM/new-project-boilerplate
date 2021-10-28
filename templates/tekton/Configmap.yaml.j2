@@ -5,6 +5,6 @@ metadata:
   namespace: {{ project_name }}-pipeline
 data:
   branch: main
-  host: github.com
-  org: cloud-native-garage-method-cohort
+  host: {{ github_repo.replace('https://','').split("/")[0] }}
+  org: {{ github_repo.replace('https://','').split("/")[1] }}
   repo: {{ project_name }}-production

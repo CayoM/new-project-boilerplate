@@ -1,4 +1,9 @@
 ---
+- name: Create k8s directory
+  file:
+    path: "{{ project_base_dir }}/{{ project_name }}/k8s"
+    state: directory
+
 - name: Create manifest files for app deployment on k8s
   template:
     src: "k8s/{{ item }}.j2"

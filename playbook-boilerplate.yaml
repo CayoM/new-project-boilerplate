@@ -30,8 +30,8 @@
       prompt: What is your container registry user?
       private: no
 
-    - name: container_registry_password
-      prompt: What is your container registry password?
+    - name: container_registry_encoded_json
+      prompt: What is your container registry encoded json secret?
       private: yes
 
   roles:

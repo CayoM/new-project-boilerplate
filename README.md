@@ -1,38 +1,23 @@
-Role Name
+New JS project for OpenShift boilerplate
 =========
 
-A brief description of the role goes here.
+This ansible role will create the base for a new project including a minimal setup for a working application on your chosen framework deployable to OpenShift with CI/CD pipelines.
+
+Usage
+--------------
+[![asciicast](https://asciinema.org/a/xtxsHsE5rjkBpawdEFIe7bQMt.svg)](https://asciinema.org/a/xtxsHsE5rjkBpawdEFIe7bQMt)
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Ansible and docker must be locally installed.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+When executing the playbook, some required information will be prompted.
 
 License
 -------
 
 BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).

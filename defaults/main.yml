@@ -1,7 +1,6 @@
 ---
 # defaults file for project-boilerplate
-project_base_dir: /tmp
-image_repository: quay.io/cayops
+project_base_dir: "{{ ansible_env.HOME }}/workspace"
 image_tag: latest
 
 k8s_deployment_replicas: 1

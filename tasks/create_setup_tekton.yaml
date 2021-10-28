@@ -1,9 +1,15 @@
 ---
+- name: Create tekton directory
+  file:
+    path: "{{ project_base_dir }}/{{ project_name }}/tekton"
+    state: directory
+
 - name: Create manifest files for Tekton
   template:
     src: "tekton/{{ item }}.j2"
     dest: "{{ project_base_dir }}/{{ project_name }}/tekton/{{ item }}"
   loop:
+    - Secrets.yaml
     - Configmap.yaml
     - EventListener.yaml
     - Pipeline.yaml

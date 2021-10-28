@@ -1,26 +1,23 @@
 ---
 - include_vars: "{{ app_type }}.yaml"
 
-- name: Create needed directories
+- name: Create project directory
   file:
-    path: "{{ project_base_dir }}/{{ project_name }}/{{ item }}"
+    path: "{{ project_base_dir }}/{{ project_name }}"
     state: directory
-  loop:
-    - tekton
-    - k8s
 
 - name: Create Boilerplate for {{ app_type }} Project
   command:
-    cmd: 'docker run --rm -v $PWD:/next-app node:12 bash -c "npx {{ create_app_command }} {{ project_name }} --use-npm"'
+    cmd: 'docker run --rm -v $PWD/{{ project_name }}:/{{ project_name }} node:12 bash -c "npx {{ create_app_command }} {{ project_name }} --use-npm"'
     chdir: "{{ project_base_dir }}"
 
 - name: Copy ignore files to project directory
   copy:
     src: "{{ item }}"
-    dest: "{{ project_base_dir }}/{{ project_name }}/.{{ item }}"
+    dest: "{{ project_base_dir }}/{{ project_name }}/{{ item }}"
   loop:
-    - dockerignore
-    - gitignore
+    - .dockerignore
+    - .gitignore
     - Dockerfile
 
 - include_tasks: create_setup_k8s.yaml
